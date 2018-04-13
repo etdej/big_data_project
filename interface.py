@@ -42,7 +42,9 @@ class Column_selecter:
         return
 if __name__ == '__main__':
     cs = Column_selecter(['zwt9-6u9n.json'])
-    print(cs.get_columns(withword='BRONX', without='23'))
+    cs.DataFrames.write.save('interface.out')
+    #print(cs.get_columns(withword='BRONX', without='23'))
+
 
 #spark.clearActiveSession()
 #spark.clearDefaultSession()
