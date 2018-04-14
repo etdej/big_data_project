@@ -1,5 +1,5 @@
 import os
-os.system('./init_script.sh')
+#os.system('./init_script.sh')
 
 from csv import reader
 from pyspark import SparkContext
@@ -8,6 +8,7 @@ import json
 
 from pyspark.sql import SQLContext, SparkSession
 from pyspark.sql.functions import split, explode
+from pyspark.sql.functions import *
 
 spark = SparkSession \
     .builder \
@@ -39,12 +40,19 @@ class Column_selecter:
 
     def get_columns(self, withword, without):
         #return the datasets idx and the columns that contain with but do not contain without
-        return
+        result = []
+        for df in self.DataFrames:
+            columns = df.columns
+            for column in columns:
+                if df.select(column).where(col(column) == withword).count() > 0 and df.select(column).where(col(column) == without).count() == 0 :
+                    result.append(column)
+
+        return  result
+
+
 if __name__ == '__main__':
     cs = Column_selecter(['zwt9-6u9n.json'])
-    cs.DataFrames.write.save('interface.out')
-    #print(cs.get_columns(withword='BRONX', without='23'))
-
+    print(cs.get_columns(withword=1, without='23'))
 
 #spark.clearActiveSession()
 #spark.clearDefaultSession()
