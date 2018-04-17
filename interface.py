@@ -1,4 +1,5 @@
 import os
+import operator
 #os.system('./init_script.sh')
 
 from csv import reader
@@ -49,10 +50,33 @@ class Column_selecter:
 
         return  result
 
+    def get_intersection(self, dataset1, column1, dataset2, column2):
+        elements1 = self.DataFrames[dataset1].select(column1).distinct()
+        nb_el1 = elements1.count()
+        elements2 = self.DataFrames[dataset2].select(column2).distinct()
+        nb_el2 = elements2.count()
+        inter = elements1.intersect(elements2)
+        jaccard = inter.count()/(nb_el1 + nb_el2 - inter.count())       
+
+        return jaccard, inter
+
+
+    def propose_similar_columns(self, dataset1, dataset2):
+        cols1 = self.DataFrames[dataset1].columns
+        cols2 = self.DataFrames[dataset2].columns	
+        d = {}
+        for col1 in cols1:
+            for col2 in cols2:
+                jac, inter = self.get_intersection(dataset1, col1, dataset2, col2)
+                d[(col1, col2)] = jac
+        sorted_d = sorted(d.items(), key=operator.itemgetter(1), reverse=True)
+        # Print the first 20 elements
+        for e in sorted_d[:20]:
+            print(e)
 
 if __name__ == '__main__':
-    cs = Column_selecter(['zwt9-6u9n.json'])
-    print(cs.get_columns(withword=1, without='23'))
-
+    cs = Column_selecter(['zwt9-6u9n.json', 'zwt9-6u9n.json'])
+    #print(cs.get_columns(withword=1, without='23'))
+    cs.propose_similar_columns(0, 1)
 #spark.clearActiveSession()
 #spark.clearDefaultSession()
