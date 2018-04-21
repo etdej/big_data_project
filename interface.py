@@ -1,6 +1,7 @@
 import os
 import operator
 #os.system('./init_script.sh')
+import time
 
 from csv import reader
 from pyspark import SparkContext
@@ -61,6 +62,16 @@ class Column_selecter:
         return jaccard, inter
 
 
+    def get_intersection(self, dataset_column_list):
+       # The dataset_column_list argument is a lsit of couple (dataset, column). dataset is the index of the dataset to use, column is the id of the column
+        for i, (dataset, column) in enumerate(dataset_column_list):
+            if( i == 0 ):
+                inter = self.DataFrames[dataset].select(column).distinct()
+            else :
+                elements = self.DataFrames[dataset].select(column).distinct()
+                inter = inter.intersect(elements)
+	
+            print(inter.show(100))
     def propose_similar_columns(self, dataset1, dataset2):
         cols1 = self.DataFrames[dataset1].columns
         cols2 = self.DataFrames[dataset2].columns	
@@ -77,6 +88,7 @@ class Column_selecter:
 if __name__ == '__main__':
     cs = Column_selecter(['zwt9-6u9n.json', 'zwt9-6u9n.json'])
     #print(cs.get_columns(withword=1, without='23'))
-    cs.propose_similar_columns(0, 1)
+    #cs.propose_similar_columns(0, 1)
+    cs.get_intersection([(0, ':created_at'), (0, ':created_at')])
 #spark.clearActiveSession()
 #spark.clearDefaultSession()
