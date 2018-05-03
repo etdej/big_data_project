@@ -37,9 +37,9 @@ class Column_selecter:
 
         dfData = df.select(explode(df.data))
         dfData = dfData.select(*[dfData.col[i] for i in range(len(columns))]).toDF(*columns)
-        #print(dfData.show())
         print(datasets_path)
-        print(dfData.columns)
+        print(dfData.show(1))
+        #print(dfData.columns)
         return dfData
 
     def get_columns(self, withword, without):
@@ -90,10 +90,11 @@ class Column_selecter:
             print(e)
 
 if __name__ == '__main__':
-    cs = Column_selecter([  '5t4n-d72c.json', '5tub-eh45.json', '5uac-w243.json' , '5unr-w4sc.json'])
+    cs = Column_selecter([ '2vha-97jm.json', '3pzk-fyqp.json', '2x8v-d8nh.json', '3qfc-4tta.json', '4wf2-7kdu.json'])
     #print(cs.get_columns(withword=1, without='23'))
     #cs.propose_similar_columns(1, 2)
-    #cs.get_intersection([(0, ':created_at'), (0, ':created_at')])
+    cs.get_intersection([(3, 'council_district'),(4, 'council_district')])
+    cs.get_intersection([(0, 'district'), (1, 'city_council_district'), (2, 'administrative_district'), (3, 'council_district'),(4, 'council_district')])
 #spark.clearActiveSession()
 #spark.clearDefaultSession()
 
