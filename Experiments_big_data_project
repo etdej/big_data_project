@@ -1,0 +1,310 @@
+####################################
+####### Experiment 1 ###############
+####################################    
+
+cs = Column_selecter(['3qfc-4tta.json', '4wf2-7kdu.json'])
+cs.get_intersection([(0, 'borough'),(1, 'borough')])
+
+# We are trying to find the intersection between the 2 columns 'borough' and 'borough' from 2 different datasets
+
+# distinct values in the 1st column  
++-------------+                                             
+|      borough|
++-------------+
+|       Queens|
+|     Brooklyn|
+|Staten Island|
+|    Manhattan|
+|        Bronx|
++-------------+
+
+# distinct values in the 2nd column
++-------+
+|borough|
++-------+
+| Queens|
++-------+
+
+# intersection
++-------+                                                                       
+|borough|
++-------+
+| Queens|
++-------+
+
+(the 2 datasets)
+
+56u5-n9sa.json
++----+--------------------+---------+-----------+-------------+-----------+-------------+-----+--------------+--------------------+--------------------+-------------+--------+--------+-----+---+--------------------+---------+----------+---------------+----------------+------------+-------+----------+--------------------+
+|:sid|                 :id|:position|:created_at|:created_meta|:updated_at|:updated_meta|:meta|borough_number|       building_name|    building_address|      borough|   state|zip_code|block|lot|fuel_oil_usage_mmbtu| latitude| longitude|community_board|council_district|census_tract|    bin|       bbl|                 nta|
++----+--------------------+---------+-----------+-------------+-----------+-------------+-----+--------------+--------------------+--------------------+-------------+--------+--------+-----+---+--------------------+---------+----------+---------------+----------------+------------+-------+----------+--------------------+
+|   1|9B1BFF61-086F-47F...|        1| 1505422641|       989673| 1505422641|       989673| null|             1|Manhattan Municip...|     1 Centre Street|    Manhattan|New York|   10007|  121|  1|                   0|40.713001|-74.004181|              1|               1|          29|1001394|1001210001|Chinatown        ...|
+|   2|E1DABCB8-8A5B-4C4...|        2| 1505422641|       989673| 1505422641|       989673| null|             5|Staten Island Bor...| 10 Richmond Terrace|Staten Island|New York|   10301|    7|  1|            1900.398|40.642197|-74.075201|              1|              49|           3|5000063|5000070001|West New Brighton...|
+|   3|6B96FB7E-A585-430...|        3| 1505422641|       989673| 1505422641|       989673| null|             1|Manhattan Crimina...|   100 Centre Street|    Manhattan|New York|   10013|  167|  1|           17678.628|40.716084|-74.001425|              1|               1|          29|1079000|1001670001|Chinatown        ...|
+|   4|D8DA9B04-1202-451...|        4| 1505422641|       989673| 1505422641|       989673| null|             1|            100 Gold|     100 Gold Street|    Manhattan|New York|   10038|   94| 25|            3557.226|40.710353|-74.004007|              1|               1|        1501|1001289|1000940025|Battery Park City...|
+|   5|D0BBF22D-44A7-4E8...|        5| 1505422641|       989673| 1505422641|       989673| null|             5|Staten Island Fam...|100 Richmond Terrace|Staten Island|New York|   10301|    9| 22|                   0|40.644935| -74.07723|              1|              49|           7|5000090|5000090022|West New Brighton...|
+|   6|0E4CB4F2-AA51-4E6...|        6| 1505422641|       989673| 1505422641|       989673| null|             5|Staten Island Vil...|    111 Canal Street|Staten Island|New York|   10304|  523|  1|                   0|40.626584|-74.076758|              1|              49|          21|5013729|5005230001|Stapleton-Roseban...|
+|   7|8AFAF0A6-7741-42C...|        7| 1505422641|       989673| 1505422641|       989673| null|             1|Manhattan Civil C...|   111 Centre Street|    Manhattan|New York|   10013|  169| 10|                   0|40.716317|-74.001277|              1|               1|          31|1001833|1001690010|SoHo-TriBeCa-Civi...|
+|   8|D3FBBBD1-B9C0-464...|        8| 1505422641|       989673| 1505422641|       989673| null|             2| Bronx Housing Court|1118 Grand Concourse|    Manhattan|New York|   10456| 2462| 39|             395.508|40.832232|-73.919655|              4|              16|       18102|2101266|2024620039|East Concourse-Co...|
+|   9|B3790F50-0D93-4BF...|        9| 1505422641|       989673| 1505422641|       989673| null|             1|        115 Chrystie| 115 Chrystie Street|        Bronx|New York|   10002|  423| 22|                   0|40.718647|-73.993586|              3|               1|          18|1005645|1004230022|Chinatown        ...|
+|  10|5026BA08-D123-492...|       10| 1505422641|       989673| 1505422641|       989673| null|             3|Brooklyn Central ...|120 Schermerhorn ...|     Brooklyn|New York|   11201|  169| 17|                   0|40.690074|-73.988923|              2|              33|          43|3000534|3001690017|DUMBO-Vinegar Hil...|
+|  11|ADC44D4B-733A-42F...|       11| 1505422641|       989673| 1505422641|       989673| null|             4| Queens Borough Hall|120-55 Queens Bou...|       Queens|New York|   11415| 2274|  2|            8889.408|40.713329|-73.828601|              9|              29|         216|4052812|4022740002|Kew Gardens      ...|
+|  12|9A8F3CEE-20F0-4C2...|       12| 1505422641|       989673| 1505422641|       989673| null|             1|     Health Building|    125 Worth Street|    Manhattan|New York|   10013|  168| 32|                   0|40.715428|-74.002673|              1|               1|          31|1001831|1001680032|SoHo-TriBeCa-Civi...|
+|  13|ED66C80B-0580-40F...|       13| 1505422641|       989673| 1505422641|       989673| null|             4|Queens Criminal C...|125-01 Queens Bou...|       Queens|New York|   11415| 9653|  1|             3100.86|40.712357|-73.826292|              9|              29|         216|4206522|4096530001|Kew Gardens      ...|
+|  14|591E77B1-9017-451...|       14| 1505422641|       989673| 1505422641|       989673| null|             5|      130 Stuyvesant|130 Stuyvesant Place|Staten Island|New York|   10301|    8| 70|                   0|40.642891|-74.076874|              1|              49|           3|5000085|5000080070|West New Brighton...|
+|  15|D39AC3EA-192C-483...|       15| 1505422641|       989673| 1505422641|       989673| null|             1|  Excelsior Building|   137 Centre Street|    Manhattan|New York|   10013|  197| 17|                   0|40.717157|-74.000653|              1|               1|          31|1002358|1001970017|SoHo-TriBeCa-Civi...|
+|  16|402530A9-7B53-461...|       16| 1505422641|       989673| 1505422641|       989673| null|             3|  Brooklyn Navy Yard|     150 Navy Street|     Brooklyn|New York|   11205| 2023|  1|                   0|40.693967|-73.979467|              2|              35|          15|   null|      null|DUMBO-Vinegar Hil...|
+|  17|1DBDE6E9-E65F-4B0...|       17| 1505422641|       989673| 1505422641|       989673| null|             4| Queens Family Court|152-02 Jamaica Av...|       Queens|New York|   11432|10093|  1|            1400.424|40.702455|-73.803261|             12|              27|         240|4438731|4100930001|Jamaica          ...|
+|  18|2B8E6A52-0BFD-4EA...|       18| 1505422641|       989673| 1505422641|       989673| null|             3|      Bedford Armory| 1579 Bedford Avenue|     Brooklyn|New York|   11225| 1274|  1|                   0|40.668489|-73.955849|              9|              35|         323|3033161|3012740001|Crown Heights Sou...|
+|  19|7AC5BF11-15AD-4D9...|       19| 1505422641|       989673| 1505422641|       989673| null|             3|        OEM Building|165 Cadman Plaza ...|     Brooklyn|New York|   11201|   85|  6|                   0|40.698767| -73.98987|              2|              33|          13|3000172|3000850006|DUMBO-Vinegar Hil...|
+|  20|5FD0E924-9D9C-443...|       20| 1505422641|       989673| 1505422641|       989673| null|             1|   Harlem Courthouse| 170 East 121 Street|    Manhattan|New York|   10035| 1769| 45|            2686.722|40.801423|-73.938373|             11|               8|         196|1054382|1017690045|East Harlem North...|
++----+--------------------+---------+-----------+-------------+-----------+-------------+-----+--------------+--------------------+--------------------+-------------+--------+--------+-----+---+--------------------+---------+----------+---------------+----------------+------------+-------+----------+--------------------+
+only showing top 20 rows
+
+4wf2-7kdu.json
++----+--------------------+---------+-----------+-------------+-----------+-------------+-----+-----------+------------+--------------------+----------------+-----------------+-------+--------+---------------+----------------+-----------+-----------------+------+--------------------------------+---------------+----------------------------------+---------------------+------------------+------------------+-------------------+-------------------------+---------------------+--------------------+--------------------+
+|:sid|                 :id|:position|:created_at|:created_meta|:updated_at|:updated_meta|:meta| cb_link_id|link_site_id|      street_address|  cross_street_1|   cross_street_2|borough|zip_code|community_board|council_district|site_in_bid|              bid|zoning|neighborhood_tabulation_area_nta|census_tract_ct|building_identification_number_bin|borough_block_lot_bbl|          latitude|         longitude| doitt_ntp_issued_a|doitt_ntp_expiration_date|in_progress_suspended|      project_status|          location_1|
++----+--------------------+---------+-----------+-------------+-----------+-------------+-----+-----------+------------+--------------------+----------------+-----------------+-------+--------+---------------+----------------+-----------+-----------------+------+--------------------------------+---------------+----------------------------------+---------------------+------------------+------------------+-------------------+-------------------------+---------------------+--------------------+--------------------+
+| 380|E014EEBA-C1E1-4DF...|      380| 1522336942|       994730| 1522336942|       994730| null|LINK-014548|qu-07-124293|   42-95 MAIN STREET|   CHERRY AVENUE|   BLOSSOM AVENUE| Queens|   11355|            407|              20|         No|             null|  C1-2|                        Flushing|        4079702|                           4115881|           4051360050|        40.7526245|      -73.82685581|2018-02-01T00:00:00|      2018-08-01T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7526245...|
+| 387|3F89424C-1E56-450...|      387| 1522336942|       994730| 1522336942|       994730| null|LINK-011582|qu-07-124291|   43-70 MAIN STREET|  BLOSSOM AVENUE|    CHERRY AVENUE| Queens|   11355|            407|              20|         No|             null|  C1-2|                        Flushing|        4079702|                           4115451|           4051240030|       40.75319078|      -73.82742983|2018-02-01T00:00:00|      2018-08-01T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7531907...|
+| 394|3714BE80-AB98-41D...|      394| 1522336942|       994730| 1522336942|       994730| null|LINK-010424|qu-07-103162|   42-51 MAIN STREET| FRANKLIN AVENUE|   BLOSSOM AVENUE| Queens|   11355|            407|              20|         No|             null|  C1-2|                        Flushing|        4079702|                           4115869|           4051360008|       40.75383368|      -73.82754182|2018-01-29T00:00:00|      2018-07-29T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7538336...|
+| 409|DCE8C5DD-384C-459...|      409| 1522336942|       994730| 1522336942|       994730| null|LINK-014448|qu-07-124290|   42-02 MAIN STREET|    MAPLE AVENUE|  FRANKLIN AVENUE| Queens|   11355|            407|              20|         No|             null|  C1-2|                        Flushing|        4085300|                           4115400|           4051220029|40.755244079276856|-73.82855997009415|2018-02-06T00:00:00|      2018-08-06T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7552440...|
+| 410|C6032C25-B0A7-471...|      410| 1522336942|       994730| 1522336942|       994730| null|LINK-014114|qu-07-138930|42-01 MAIN STREET...|     MAIN STREET|KISSENA BOULEVARD| Queens|   11355|            407|              20|         No|             null|  C1-2|                        Flushing|        4085300|                              null|           4051350001|       40.75543644|      -73.82802479|2018-02-01T00:00:00|      2018-08-01T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7554364...|
+| 411|B810DF96-BE84-4AA...|      411| 1522336942|       994730| 1522336942|       994730| null|LINK-011193|qu-07-136359|   41-96 MAIN STREET|    MAPLE AVENUE|   SANFORD AVENUE| Queens|   11355|            407|              20|         No|             null|  C1-2|                        Flushing|        4084900|                           4115370|           4051210037| 40.75546553972582|-73.82842357729817|2018-01-29T00:00:00|      2018-07-29T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7554655...|
+| 413|D232A94C-933A-4E4...|      413| 1522336942|       994730| 1522336942|       994730| null|LINK-013573|qu-07-124301|   41-99 MAIN STREET|    MAPLE AVENUE|   SANFORD AVENUE| Queens|   11355|            407|              20|         No|             null|  C1-2|                        Flushing|        4085300|                           4115668|           4051347503|       40.75554131|      -73.82822039|2018-02-01T00:00:00|      2018-08-01T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7555413...|
+| 422|4FF8DC40-8281-491...|      422| 1522336942|       994730| 1522336942|       994730| null|LINK-013572|qu-07-124297|   41-60 MAIN STREET|  SANFORD AVENUE|     MAPLE AVENUE| Queens|   11355|            407|              20|         No|             null|  C1-2|                        Flushing|        4084900|                           4467591|           4051210020|   40.756498398251|-73.82883670171623|2018-01-17T00:00:00|      2018-07-17T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7564983...|
+| 426|CA33DE49-ACC6-41B...|      426| 1522336942|       994730| 1522336942|       994730| null|LINK-012073|qu-07-124309|   41-57 MAIN STREET|  SANFORD AVENUE|          41 ROAD| Queens|   11355|            407|              20|        Yes|Downtown Flushing|  C1-2|                        Flushing|        4085300|                           4309523|           4050437501|       40.75681671|       -73.8287341|2018-01-08T00:00:00|      2018-07-08T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7568167...|
+| 428|2913D700-770C-4AA...|      428| 1522336942|       994730| 1522336942|       994730| null|LINK-013635|qu-07-124381|41-77 KISSENA BOU...|  BARCLAY AVENUE|   SANFORD AVENUE| Queens|   11355|            407|              20|        Yes|Downtown Flushing|  C4-2|                        Flushing|        4085300|                           4114293|           4050450001|       40.75730113|      -73.82719918|2018-01-17T00:00:00|      2018-07-17T00:00:00|          In Progress|   ConEd in Progress|[null,"40.7573011...|
+| 438|7AF629E3-3E72-4BA...|      438| 1522336942|       994730| 1522336942|       994730| null|LINK-011890|qu-07-124307|   41-02 MAIN STREET|       41 AVENUE|          41 ROAD| Queens|   11355|            407|              20|        Yes|Downtown Flushing|  C1-2|                        Flushing|        4084900|                           4114233|           4050410030|       40.75803855|      -73.82951793|2018-01-08T00:00:00|      2018-07-08T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7580385...|
+| 443|4BE0E175-E64A-427...|      443| 1522336942|       994730| 1522336942|       994730| null|LINK-011360|qu-07-124361|   40-28 MAIN STREET|         40 ROAD|        41 AVENUE| Queens|   11354|            407|              20|        Yes|Downtown Flushing|  C4-2|                        Flushing|        4087100|                           4114142|           4050370055|       40.75882301|      -73.82990305|2018-01-08T00:00:00|      2018-07-08T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7588230...|
+| 447|56BB6A8E-6583-47B...|      447| 1522336942|       994730| 1522336942|       994730| null|LINK-012940|qu-07-124304|   40-02 MAIN STREET|ROOSEVELT AVENUE|          40 ROAD| Queens|   11354|            407|              20|        Yes|Downtown Flushing|  C4-3|                        Flushing|        4087100|                           4114119|           4050360036|       40.75941547|      -73.83019262|2018-01-08T00:00:00|      2018-07-08T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7594154...|
+| 449|7A89BA99-AC2C-4A2...|      449| 1522336942|       994730| 1522336942|       994730| null|LINK-013591|qu-07-124371|136-02 Roosevelt Ave|     MAIN STREET|  PEDESTRIAN WALK| Queens|   11354|            407|              20|        Yes|Downtown Flushing|  C4-3|                        Flushing|        4085300|                           4113548|           4050190011|       40.75960874|      -73.82972463|2018-02-01T00:00:00|      2018-08-01T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7596087...|
+| 452|FD76670B-7530-49E...|      452| 1522336942|       994730| 1522336942|       994730| null|LINK-013201|qu-07-124364|   39-15 MAIN STREET|       39 AVENUE| ROOSEVELT AVENUE| Queens|   11354|            407|              20|        Yes|Downtown Flushing|  C4-3|                        Flushing|        4087100|                           4112487|           4049800001|       40.75970465|      -73.83008424|2018-01-08T00:00:00|      2018-07-08T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7597046...|
+| 456|7AF00C8F-919F-46C...|      456| 1522336942|       994730| 1522336942|       994730| null|LINK-014672|qu-07-124317|   39-02 MAIN STREET|       39 AVENUE| ROOSEVELT AVENUE| Queens|   11354|            407|              20|        Yes|Downtown Flushing|  C4-3|                        Flushing|        4087100|                           4112326|           4049760048|       40.76012144|      -73.83051513|2018-01-17T00:00:00|      2018-07-17T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7601214...|
+| 457|3808DBFF-592C-400...|      457| 1522336942|       994730| 1522336942|       994730| null|LINK-013230|qu-07-124353|  136-19 39th AVENUE|     MAIN STREET|       138 STREET| Queens|   11354|            407|              20|        Yes|Downtown Flushing|  C4-3|                        Flushing|        4087100|                           4534816|           4049787501|       40.76027531|      -73.83025832|2018-01-08T00:00:00|      2018-07-08T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7602753...|
+| 462|C44DFFD1-19B7-4E2...|      462| 1522336942|       994730| 1522336942|       994730| null|LINK-013634|qu-07-124316|   37-29 MAIN STREET|       38 AVENUE|        37 AVENUE| Queens|   11354|            407|              20|        Yes|Downtown Flushing|  C4-3|                        Flushing|        4087100|                           4112470|           4049780001|        40.7609766|      -73.83072047|2018-01-17T00:00:00|      2018-07-17T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7609766...|
+| 465|612521DF-B7B7-450...|      465| 1522336942|       994730| 1522336942|       994730| null|LINK-013623|qu-07-124284|   37-02 MAIN STREET|       37 AVENUE|        38 AVENUE| Queens|   11354|            407|              20|        Yes|Downtown Flushing|  C4-3|                        Flushing|        4087100|                           4112290|           4049740027|       40.76142994|      -73.83116679|2018-01-17T00:00:00|      2018-07-17T00:00:00|          In Progress|Ready to Submit t...|[null,"40.7614299...|
+| 474|56A3F7A6-C8D2-487...|      474| 1522336942|       994730| 1522336942|       994730| null|LINK-012159|qu-07-141962|161-03 NORTHERN B...|      161 STREET| CROCHERON AVENUE| Queens|   11358|            407|              19|         No|             null|  C1-2|                     Murray Hill|        4117100|                           4119429|           4052817501|       40.76265343|      -73.80447791|2018-03-14T00:00:00|      2018-09-14T00:00:00|          In Progress|   ConEd in Progress|[null,"40.7626534...|
++----+--------------------+---------+-----------+-------------+-----------+-------------+-----+-----------+------------+--------------------+----------------+-----------------+-------+--------+---------------+----------------+-----------+-----------------+------+--------------------------------+---------------+----------------------------------+---------------------+------------------+------------------+-------------------+-------------------------+---------------------+--------------------+--------------------+
+only showing top 20 rows
+
+
+####################################
+####### Experiment 2 ###############
+####################################
+
+# Again the 2 datasets 56u5-n9sa.json, 4wf2-7kdu.json
+# Basically we are trying to find similar columns in these two data sets
+# value close to 1 == similar
+
+
+cs = Column_selecter(['56u5-n9sa.json', '4wf2-7kdu.json'])
+cs.propose_similar_columns(0, 1)
+
+	((':meta', ':meta'), 1.0)                                                       
+	(('borough', 'borough'), 0.2)
+	(('community_board', ':meta'), 0.1)
+	(('community_board', 'bid'), 0.09090909090909091)
+	(('council_district', ':meta'), 0.06666666666666667)
+	(('council_district', 'bid'), 0.0625)
+	(('nta', ':meta'), 0.047619047619047616)
+	(('nta', 'bid'), 0.045454545454545456)
+	(('lot', 'council_district'), 0.037037037037037035)
+	((':sid', 'council_district'), 0.03636363636363636)
+	((':position', 'council_district'), 0.03636363636363636)
+	((':meta', 'building_identification_number_bin'), 0.034482758620689655)
+	(('census_tract', ':meta'), 0.03333333333333333)
+	(('census_tract', 'bid'), 0.03225806451612903)
+	(('community_board', 'building_identification_number_bin'), 0.02631578947368421)
+	(('council_district', 'building_identification_number_bin'), 0.023255813953488372)
+	(('nta', 'building_identification_number_bin'), 0.02040816326530612)
+	(('bin', ':meta'), 0.018867924528301886)
+	(('bbl', ':meta'), 0.018867924528301886)
+	(('bin', 'bid'), 0.018518518518518517)
+	(('bbl', 'bid'), 0.018518518518518517)
+	(('latitude', ':meta'), 0.01818181818181818)
+	(('longitude', ':meta'), 0.01818181818181818)
+	(('latitude', 'bid'), 0.017857142857142856)
+	(('longitude', 'bid'), 0.017857142857142856)
+	(('census_tract', 'building_identification_number_bin'), 0.017241379310344827)
+	(('bin', 'building_identification_number_bin'), 0.012345679012345678)
+	(('bbl', 'building_identification_number_bin'), 0.012345679012345678)
+	(('latitude', 'building_identification_number_bin'), 0.012048192771084338)
+	(('longitude', 'building_identification_number_bin'), 0.012048192771084338)
+
+
+
+
+
+
+####################################
+####### Experiment 3 ###############
+####################################
+
+cs = Column_selecter(['56e3-rp8d.json', '56u5-n9sa.json', '4wf2-7kdu.json'])
+cs.get_intersection([(0, 'zip'),(1, 'zip_code'), (2, 'zip_code')])
+
+# We are trying to find the intersection between the 3 columns 'zip', 'zip_code', 'zip_code' from the 3 different datasets
+
+# distinct values from the 'zip' column in the first dataset
++-----+
+|  zip|
++-----+
+|11106|
+|11218|
+|10452|
+|89108|
+|10011|
+|10451|
+|11203|
+|11222|
+|11217|
+|05452|
+|10036|
+|10027|
+|10453|
+|11354|
+|11103|
+|11101|
+|11215|
++-----+
+
+# distinct values from the 'zip' column in the 2nd dataset
+
++--------+
+|zip_code|
++--------+
+|   11205|
+|   11379|
+|   10010|
+|   10038|
+|   10457|
+|   11435|
+|   10310|
+|   10304|
+|   10451|
+|   11201|
++--------+
+
+
+# intersection between first and second
++-----+                                                                         
+|  zip|
++-----+
+|10451|
+|11101|
++-----+
+
+# distinct values from the 'zip_code' column in the 3rd dataset
++--------+
+|zip_code|
++--------+
+|   11355|
+|   11358|
+|   11354|
++--------+
+
+# no intersection for the 3 columns (none)
++---+
+|zip|
++---+
+
+
+
+####################################
+####### Experiment 4 ###############
+####################################
+
+
+cs = Column_selecter(['56e3-rp8d.json', '56u5-n9sa.json'])
+cs.propose_similar_columns(0, 1)
+# Basically we are trying to find similar columns in these two data sets, below is the result: 
+
+	# ((':meta', ':meta'), 1.0)                                                       
+    # ((':meta', 'community_board'), 0.1)
+    # ((':meta', 'council_district'), 0.06666666666666667)
+    # (('zip', 'zip_code'), 0.05263157894736842)
+    # ((':meta', 'nta'), 0.047619047619047616)
+    # ((':meta', 'census_tract'), 0.03333333333333333)
+    # ((':meta', 'bin'), 0.018867924528301886)
+    # ((':meta', 'bbl'), 0.018867924528301886)
+    # ((':meta', 'longitude'), 0.01818181818181818)
+    # ((':meta', 'latitude'), 0.01818181818181818)
+    # ((':id', ':created_meta'), 0.0)
+    # ((':id', 'community_board'), 0.0)
+    # (('state', 'census_tract'), 0.0)
+    # (('date', ':created_meta'), 0.0)
+    # (('city', ':created_meta'), 0.0)
+    # (('name', 'lot'), 0.0)
+    # ((':created_meta', ':position'), 0.0)
+    # (('license_number', ':meta'), 0.0)
+    # ((':sid', 'council_district'), 0.0)
+    # (('name', ':created_meta'), 0.0)
+
+(the two datasets)
+56e3-rp8d.json
++----+--------------------+---------+-----------+-------------+-----------+-------------+-----+--------------+--------------------+--------------------+---------+-----+-----+-------------+----------+-------+-------------------+-----+
+|:sid|                 :id|:position|:created_at|:created_meta|:updated_at|:updated_meta|:meta|license_number|                name|             address|     city|state|  zip|        phone|      type| status|               date| time|
++----+--------------------+---------+-----------+-------------+-----------+-------------+-----+--------------+--------------------+--------------------+---------+-----+-----+-------------+----------+-------+-------------------+-----+
+|3538|E53D73C6-2B0D-42B...|     3538| 1522868799|       399231| 1522868799|       399231| null|         MP033|A1 METER & SECURI...|393 MCGUINNESS BO...| BROOKLYN|   NY|11222|(718)389-2753|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3539|91C858E6-C4A2-46B...|     3539| 1522868799|       399231| 1522868799|       399231| null|         MP001|AMERICAN TAXIMETE...|    21-46   44 DRIVE|      LIC|   NY|11101|(718)937-4600|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3540|3F68D9E4-00FC-4F0...|     3540| 1522868799|       399231| 1522868799|       399231| null|         MM008|        KAPTYN, INC.|6320 W. CHEYENNE ...|LAS VEGAS|   NV|89108|(202)658-8255|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3541|4AB84EB5-529E-4F2...|     3541| 1522868799|       399231| 1522868799|       399231| null|         MP037|WAILING,MANAGEMEN...|3108 NORTHERN BOU...|      LIC|   NY|11101|(718)472-1800|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3542|D88DF272-B026-447...|     3542| 1522868799|       399231| 1522868799|       399231| null|         MF023|STYLE MANAGEMENT ...|518 WEST   44 STREET|      NYC|   NY|10036|(212)279-3166|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3543|B453FAB9-A6F4-4A3...|     3543| 1522868799|       399231| 1522868799|       399231| null|         MP016|METROMETER SHOP INC.|   11-11   34 AVENUE|      LIC|   NY|11106|(929)268-3184|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3544|55083DE6-9DAE-42F...|     3544| 1522868799|       399231| 1522868799|       399231| null|         MP044|HYBRID AUTO TECH INC|519 WEST   47 STREET| NEW YORK|   NY|10036|(212)582-8877|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3545|D1DE4EF2-8C9B-4ED...|     3545| 1522868799|       399231| 1522868799|       399231| null|         MF011|J & I MAINTENANCE...|   341 BERGEN STREET| BROOKLYN|   NY|11217|(718)858-3502|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3546|55BCE449-4F2B-452...|     3546| 1522868799|       399231| 1522868799|       399231| null|         MP029|521 WEST 21ST ST....|415 WEST  127 STREET|       NY|   NY|10027|(212)665-4900|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3547|8646D0BD-DD8A-4FB...|     3547| 1522868799|       399231| 1522868799|       399231| null|         MM007|   ATHENA VISION LLC|   21-03   44 AVENUE|      LIC|   NY|11101|(718)683-8495|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3548|AA0CAA86-EF99-430...|     3548| 1522868799|       399231| 1522868799|       399231| null|         MF003|CAB MANAGEMENT CORP.|27-34 JACKSON AVENUE|      LIC|   NY|11101|(718)937-8668|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3549|E069C333-E164-4BD...|     3549| 1522868799|       399231| 1522868799|       399231| null|         MP034|TRIZZ TAXIMETER R...|520 WEST   44 STREET| NEW YORK|   NY|10036|(646)336-7625|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3550|200C3E47-380A-456...|     3550| 1522868799|       399231| 1522868799|       399231| null|         MP004|OLDEE TAXI INSTRU...|   24-50   47 STREET|  ASTORIA|   NY|11103|(718)482-6533|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3551|00C55CC0-2B37-45C...|     3551| 1522868799|       399231| 1522868799|       399231| null|         MP052|BORO TAXI METER, ...|    1437   39 STREET| BROOKLYN|   NY|11218|(347)789-3630|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3552|6B52C5E1-F8CD-478...|     3552| 1522868799|       399231| 1522868799|       399231| null|         MP047|O.R.C. REPEATER C...|   444 GERARD AVENUE|    BRONX|   NY|10451|(718)402-2929|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3553|5D8F84EB-F00A-488...|     3553| 1522868799|       399231| 1522868799|       399231| null|         MF008|   UTICA TAXI CENTER|    465 UTICA AVENUE| BROOKLYN|   NY|11203|(718)774-9767|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3554|E72A39A0-8E29-4AC...|     3554| 1522868799|       399231| 1522868799|       399231| null|         MF024|   GOTHAM YELLOW LLC|  134-02   33 AVENUE| FLUSHING|   NY|11354|(718)933-8100|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3555|EE1B1588-0926-428...|     3555| 1522868799|       399231| 1522868799|       399231| null|         MM003|        VERIFONE INC|   11-11   34 AVENUE|      LIC|   NY|11106|(718)752-1656|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3556|87A88574-B7E7-42C...|     3556| 1522868799|       399231| 1522868799|       399231| null|         MP038|OLYMPIC METERSHOP...|   11-05   38 AVENUE|      LIC|   NY|11101|(718)361-3005|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
+|3557|2F55ECF1-1E6A-4F1...|     3557| 1522868799|       399231| 1522868799|       399231| null|         MP046|  TAXICAB PARTITIONS|  1415 INWOOD AVENUE|    BRONX|   NY|10452|(718)538-7275|METER SHOP|CURRENT|2018-04-02T00:00:00|06:00|
++----+--------------------+---------+-----------+-------------+-----------+-------------+-----+--------------+--------------------+--------------------+---------+-----+-----+-------------+----------+-------+-------------------+-----+
+only showing top 20 rows
+
+56u5-n9sa.json
++----+--------------------+---------+-----------+-------------+-----------+-------------+-----+--------------+--------------------+--------------------+-------------+--------+--------+-----+---+--------------------+---------+----------+---------------+----------------+------------+-------+----------+--------------------+
+|:sid|                 :id|:position|:created_at|:created_meta|:updated_at|:updated_meta|:meta|borough_number|       building_name|    building_address|      borough|   state|zip_code|block|lot|fuel_oil_usage_mmbtu| latitude| longitude|community_board|council_district|census_tract|    bin|       bbl|                 nta|
++----+--------------------+---------+-----------+-------------+-----------+-------------+-----+--------------+--------------------+--------------------+-------------+--------+--------+-----+---+--------------------+---------+----------+---------------+----------------+------------+-------+----------+--------------------+
+|   1|9B1BFF61-086F-47F...|        1| 1505422641|       989673| 1505422641|       989673| null|             1|Manhattan Municip...|     1 Centre Street|    Manhattan|New York|   10007|  121|  1|                   0|40.713001|-74.004181|              1|               1|          29|1001394|1001210001|Chinatown        ...|
+|   2|E1DABCB8-8A5B-4C4...|        2| 1505422641|       989673| 1505422641|       989673| null|             5|Staten Island Bor...| 10 Richmond Terrace|Staten Island|New York|   10301|    7|  1|            1900.398|40.642197|-74.075201|              1|              49|           3|5000063|5000070001|West New Brighton...|
+|   3|6B96FB7E-A585-430...|        3| 1505422641|       989673| 1505422641|       989673| null|             1|Manhattan Crimina...|   100 Centre Street|    Manhattan|New York|   10013|  167|  1|           17678.628|40.716084|-74.001425|              1|               1|          29|1079000|1001670001|Chinatown        ...|
+|   4|D8DA9B04-1202-451...|        4| 1505422641|       989673| 1505422641|       989673| null|             1|            100 Gold|     100 Gold Street|    Manhattan|New York|   10038|   94| 25|            3557.226|40.710353|-74.004007|              1|               1|        1501|1001289|1000940025|Battery Park City...|
+|   5|D0BBF22D-44A7-4E8...|        5| 1505422641|       989673| 1505422641|       989673| null|             5|Staten Island Fam...|100 Richmond Terrace|Staten Island|New York|   10301|    9| 22|                   0|40.644935| -74.07723|              1|              49|           7|5000090|5000090022|West New Brighton...|
+|   6|0E4CB4F2-AA51-4E6...|        6| 1505422641|       989673| 1505422641|       989673| null|             5|Staten Island Vil...|    111 Canal Street|Staten Island|New York|   10304|  523|  1|                   0|40.626584|-74.076758|              1|              49|          21|5013729|5005230001|Stapleton-Roseban...|
+|   7|8AFAF0A6-7741-42C...|        7| 1505422641|       989673| 1505422641|       989673| null|             1|Manhattan Civil C...|   111 Centre Street|    Manhattan|New York|   10013|  169| 10|                   0|40.716317|-74.001277|              1|               1|          31|1001833|1001690010|SoHo-TriBeCa-Civi...|
+|   8|D3FBBBD1-B9C0-464...|        8| 1505422641|       989673| 1505422641|       989673| null|             2| Bronx Housing Court|1118 Grand Concourse|    Manhattan|New York|   10456| 2462| 39|             395.508|40.832232|-73.919655|              4|              16|       18102|2101266|2024620039|East Concourse-Co...|
+|   9|B3790F50-0D93-4BF...|        9| 1505422641|       989673| 1505422641|       989673| null|             1|        115 Chrystie| 115 Chrystie Street|        Bronx|New York|   10002|  423| 22|                   0|40.718647|-73.993586|              3|               1|          18|1005645|1004230022|Chinatown        ...|
+|  10|5026BA08-D123-492...|       10| 1505422641|       989673| 1505422641|       989673| null|             3|Brooklyn Central ...|120 Schermerhorn ...|     Brooklyn|New York|   11201|  169| 17|                   0|40.690074|-73.988923|              2|              33|          43|3000534|3001690017|DUMBO-Vinegar Hil...|
+|  11|ADC44D4B-733A-42F...|       11| 1505422641|       989673| 1505422641|       989673| null|             4| Queens Borough Hall|120-55 Queens Bou...|       Queens|New York|   11415| 2274|  2|            8889.408|40.713329|-73.828601|              9|              29|         216|4052812|4022740002|Kew Gardens      ...|
+|  12|9A8F3CEE-20F0-4C2...|       12| 1505422641|       989673| 1505422641|       989673| null|             1|     Health Building|    125 Worth Street|    Manhattan|New York|   10013|  168| 32|                   0|40.715428|-74.002673|              1|               1|          31|1001831|1001680032|SoHo-TriBeCa-Civi...|
+|  13|ED66C80B-0580-40F...|       13| 1505422641|       989673| 1505422641|       989673| null|             4|Queens Criminal C...|125-01 Queens Bou...|       Queens|New York|   11415| 9653|  1|             3100.86|40.712357|-73.826292|              9|              29|         216|4206522|4096530001|Kew Gardens      ...|
+|  14|591E77B1-9017-451...|       14| 1505422641|       989673| 1505422641|       989673| null|             5|      130 Stuyvesant|130 Stuyvesant Place|Staten Island|New York|   10301|    8| 70|                   0|40.642891|-74.076874|              1|              49|           3|5000085|5000080070|West New Brighton...|
+|  15|D39AC3EA-192C-483...|       15| 1505422641|       989673| 1505422641|       989673| null|             1|  Excelsior Building|   137 Centre Street|    Manhattan|New York|   10013|  197| 17|                   0|40.717157|-74.000653|              1|               1|          31|1002358|1001970017|SoHo-TriBeCa-Civi...|
+|  16|402530A9-7B53-461...|       16| 1505422641|       989673| 1505422641|       989673| null|             3|  Brooklyn Navy Yard|     150 Navy Street|     Brooklyn|New York|   11205| 2023|  1|                   0|40.693967|-73.979467|              2|              35|          15|   null|      null|DUMBO-Vinegar Hil...|
+|  17|1DBDE6E9-E65F-4B0...|       17| 1505422641|       989673| 1505422641|       989673| null|             4| Queens Family Court|152-02 Jamaica Av...|       Queens|New York|   11432|10093|  1|            1400.424|40.702455|-73.803261|             12|              27|         240|4438731|4100930001|Jamaica          ...|
+|  18|2B8E6A52-0BFD-4EA...|       18| 1505422641|       989673| 1505422641|       989673| null|             3|      Bedford Armory| 1579 Bedford Avenue|     Brooklyn|New York|   11225| 1274|  1|                   0|40.668489|-73.955849|              9|              35|         323|3033161|3012740001|Crown Heights Sou...|
+|  19|7AC5BF11-15AD-4D9...|       19| 1505422641|       989673| 1505422641|       989673| null|             3|        OEM Building|165 Cadman Plaza ...|     Brooklyn|New York|   11201|   85|  6|                   0|40.698767| -73.98987|              2|              33|          13|3000172|3000850006|DUMBO-Vinegar Hil...|
+|  20|5FD0E924-9D9C-443...|       20| 1505422641|       989673| 1505422641|       989673| null|             1|   Harlem Courthouse| 170 East 121 Street|    Manhattan|New York|   10035| 1769| 45|            2686.722|40.801423|-73.938373|             11|               8|         196|1054382|1017690045|East Harlem North...|
++----+--------------------+---------+-----------+-------------+-----------+-------------+-----+--------------+--------------------+--------------------+-------------+--------+--------+-----+---+--------------------+---------+----------+---------------+----------------+------------+-------+----------+--------------------+
+only showing top 20 rows
+
+
+
+
+
+
+
+
+
+
+
+
+
